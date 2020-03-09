@@ -1,0 +1,42 @@
+﻿<Window x:Class="eroforras.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:eroforras"
+        xmlns:SystemGesture="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="{DynamicResource Hatter}">
+    <Window.Resources>
+
+        <!-- dynamikus erőforrás hozzáadása, előbb volt használva, mint hozzáadva, ezért dinamikus, a Windowba van haszmnálva -->
+        <LinearGradientBrush x:Key="Hatter">
+            <GradientStop Offset="0" Color="Silver" />
+            <GradientStop Offset="1" Color="Gray" />
+        </LinearGradientBrush> 
+        
+        <!--  Statikus erőforrás hozzáadása -->
+        <x:Array x:Key="LegorduloElem" Type="SystemGesture:String">
+            <SystemGesture:String>
+                Elem #1
+            </SystemGesture:String>
+            <SystemGesture:String>
+                Elem #2
+            </SystemGesture:String>
+            <SystemGesture:String>
+                Elem #3
+            </SystemGesture:String>
+        </x:Array>
+        
+        
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Választás"/>
+            <!-- Statikus erőforrás hazsnálata -->
+            <ComboBox ItemsSource="{StaticResource LegorduloElem}" />
+        </StackPanel>
+    </Grid>
+</Window>
